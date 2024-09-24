@@ -1,0 +1,16 @@
+{
+  "name": "zc-ui",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "engines": {
+    "node": "=22.1.0",
+    "pnpm": "=9.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.8",
+    "react": "^18.3.1",
+    "tsup": "^8.3.0"
+  }
+}

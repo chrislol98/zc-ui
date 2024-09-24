@@ -1,0 +1,19 @@
+{
+  "name": "@nextui-org/badge",
+  "version": "2.0.32",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {},
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
