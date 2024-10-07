@@ -1,7 +1,7 @@
 {
-  "name": "@zc-ui/utils",
+  "name": "@zc-ui/goblin-editor",
   "version": "1.0.0",
-  "license": "MIT",
+  "main": "src/index.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -11,6 +11,9 @@
   },
   "scripts": {},
   "peerDependencies": {},
-  "dependencies": {},
+  "dependencies": {
+    "@zc-ui/shared": "workspace:*",
+    "@zc-ui/goblin-core": "workspace:*"
+  },
   "devDependencies": {}
 }

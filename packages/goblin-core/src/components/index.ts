@@ -1,0 +1,1 @@
+export * from 'goblin-core/components/parse'

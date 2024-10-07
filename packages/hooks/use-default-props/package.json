@@ -1,5 +1,5 @@
 {
-  "name": "@zc-ui/use-use-default-props",
+  "name": "@zc-ui/use-default-props",
   "version": "1.0.0",
   "license": "MIT",
   "main": "src/index.ts",
@@ -15,15 +15,5 @@
     "react": ">=18"
   },
   "dependencies": {},
-  "devDependencies": {
-
-  },
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "devDependencies": {}
 }

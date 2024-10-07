@@ -16,6 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@zc-ui/types": "workspace:*"
+    "@zc-ui/types": "workspace:*",
+    "@zc-ui/use-default-props": "workspace:*"
   }
 }

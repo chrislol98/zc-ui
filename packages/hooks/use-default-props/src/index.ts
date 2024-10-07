@@ -4,7 +4,7 @@ export type MergedProps<T extends Record<string, any>, A extends T> = Omit<T, ke
 // export type MergedProps<T extends Record<string, any>, A extends T> =
 // Pick<T, Exclude<keyof T, keyof A>> & A;
 
-export default function useDefaultProps<T extends Record<PropertyKey, any>, A extends T>(
+export function useDefaultProps<T extends Record<PropertyKey, any>, A extends T>(
   originalProps: T,
   defaultProps: A,
 ) {

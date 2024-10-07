@@ -1,6 +1,11 @@
-import { forwardRef } from 'React'
-type G = Simplify<{a: 1}>
-type H = GG
-const Input = forwardRef((props, ref: React.ForwardedRef<Element>) => {
-  return <div></div>
-})
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>()
+Input.displayName = "Input"
+
+export { Input }
