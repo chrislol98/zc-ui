@@ -11,7 +11,7 @@ import {
 BaseDsl.add({ parser: Div, dsl: DivDsl });
 BaseDsl.add({ parser: Droppable, dsl: DroppableDsl });
 
-export function parse(data: DslType[] | DslType): React.ReactNode | null {
+export function parse(dsl: DslType[] | DslType): React.ReactNode | null {
   function parseChildren(children?: DslType[] | DslType) {
     if (!children) return null;
     if (isArray(children)) {
@@ -19,16 +19,15 @@ export function parse(data: DslType[] | DslType): React.ReactNode | null {
     }
     return parse(children);
   }
-  if (isArray(data)) {
-    return data.map((dsl) => parse(dsl));
+  if (isArray(dsl)) {
+    return dsl.map((dsl) => parse(dsl));
   }
-  const { name, children } = data;
+  const { name, children } = dsl;
   const config = BaseDsl.map.get(name);
   if (config?.parser) {
+    const parserProps = { dsl };
     return (
-      <config.parser {...{ dsl: new config.dsl() }}>
-        {parseChildren(children)}
-      </config.parser>
+      <config.parser {...parserProps}>{parseChildren(children)}</config.parser>
     );
   }
   return null;

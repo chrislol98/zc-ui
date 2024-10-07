@@ -1,7 +1,6 @@
 {
-  "name": "@zc-ui/use-controlled",
+  "name": "@zc-ui/dnd",
   "version": "1.0.0",
-  "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
@@ -12,14 +11,10 @@
   },
   "scripts": {},
   "peerDependencies": {
-    "lodash": "^4.17.21",
-    "react": ">=18",
-    "@types/lodash": "^4.17.9"
+    "react": ">=18"
   },
   "dependencies": {
-    "@zc-ui/use-memoized-fn": "workspace:*",
-    "@zc-ui/use-update": "workspace:*",
+    "@dnd-kit/core": "^6.1.0",
     "@zc-ui/shared": "workspace:*"
-  },
-  "devDependencies": {}
+  }
 }

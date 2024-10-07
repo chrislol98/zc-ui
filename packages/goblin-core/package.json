@@ -11,6 +11,8 @@
   "scripts": {},
   "dependencies": {
     "@zc-ui/shared": "workspace:*",
+    "@zc-ui/dnd": "workspace:*",
+    "@zc-ui/div": "workspace:*",
     "immer": "^10.1.1",
     "zustand": "5.0.0-rc.2"
   }

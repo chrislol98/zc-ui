@@ -1,33 +1,39 @@
 import { useState } from 'react';
 import { cn } from '@zc-ui/shared';
 import { useDraggable, useDndMonitor, CSS, DragOverlay } from '@zc-ui/shared';
-import { Button } from '@zc-ui/shared';
-import { DslSnippet } from '@zc-ui/goblin-core';
+import { DslSnippet, useDslStore } from '@zc-ui/goblin-core';
 
 interface LeftProps extends React.HTMLAttributes<Element> {}
 export function Left(props: LeftProps) {
   const { className } = props;
+  const add = useDslStore((state) => state.add);
   const [activeId, setActiveId] = useState<string | number | null>(null);
 
   useDndMonitor({
     onDragStart(event) {
       setActiveId(event.active.id);
     },
-    onDragMove(event) {
-      
-    },
+    onDragMove(event) {},
     onDragOver(event) {},
     onDragEnd(event) {
+      const id = event.over?.id;
+      const current = event.active.data.current as DslSnippet;
+      const dsl = current.createDsl();
+      dsl && add({ dsl, id });
       setActiveId(null);
     },
     onDragCancel(event) {},
   });
+
   function render() {
-    return [...DslSnippet.map.keys()].map((name) => (
-      <Draggable id={name} key={name}>
-        <Item value={name} />
-      </Draggable>
-    ));
+    return [...DslSnippet.map.values()].map(function (value) {
+      const { name } = value;
+      return (
+        <Draggable dslSnippet={value} key={name}>
+          <Item value={name} />
+        </Draggable>
+      );
+    });
   }
 
   return (
@@ -38,9 +44,11 @@ export function Left(props: LeftProps) {
   );
 }
 
-function Draggable(props: React.PropsWithChildren<{ id: string }>) {
+function Draggable(props: React.PropsWithChildren<{ dslSnippet: DslSnippet }>) {
+  const { dslSnippet } = props;
   const { attributes, listeners, setNodeRef } = useDraggable({
-    id: props.id,
+    id: dslSnippet.name,
+    data: dslSnippet,
   });
 
   return (

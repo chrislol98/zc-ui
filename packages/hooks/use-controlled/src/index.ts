@@ -1,7 +1,7 @@
 import upperFirst from 'lodash/upperFirst';
 import { SetStateAction, useMemo, useRef } from 'react';
 import { useMemoizedFn } from '@zc-ui/use-memoized-fn';
-import { isFunction } from '@zc-ui/utils';
+import { isFunction } from '@zc-ui/shared';
 import { useUpdate } from '@zc-ui/use-update';
 
 function keyToDefaultKey<T extends string>(key: T) {

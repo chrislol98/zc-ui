@@ -3,57 +3,49 @@ import { immer } from 'zustand/middleware/immer'
 import { DslType, DivDslSnippet, } from 'goblin-core'
 import { isArray } from '@zc-ui/shared'
 type StateAction = {
-  add: (data: { dsl: DslType[] | DslType; id: number | string }) => void
-  find: (data: { id: number | string }) => DslType | undefined
+  add: (data: { dsl: DslType[] | DslType; id?: number | string }) => void
+  find: (data: { dsl: DslType[] | DslType; id?: number | string }) => DslType | undefined
   delete?: (dsl: DslType) => void
 }
 type State = {
   dsl: DslType[] | DslType
 }
 export const useDslStore = create<State & StateAction>()(immer((set, get) => ({
-  dsl: DivDslSnippet.dsl,
-  find: (data: { id: number | string }) => {
-    const dsl = get().dsl;
-    const findNode = (node: DslType): DslType | undefined => {
-      if (node.id === data.id) {
-        return node;
-      }
-      if (isArray(node.children)) {
-        for (const child of node.children) {
-          const found = findNode(child);
-          if (found) {
-            return found;
-          }
-        }
-      }
-      return undefined;
-    };
-
+  dsl: DivDslSnippet.createDsl(),
+  find: (data: { dsl: DslType[] | DslType; id?: number | string }) => {
+    const { id, dsl } = data;
+    let res: DslType | undefined = undefined;
     if (isArray(dsl)) {
-      for (const snippet of dsl) {
-        const found = findNode(snippet);
-        if (found) {
-          return found;
-        }
-      }
+      dsl.forEach(findImpl);
     } else {
-      return findNode(dsl);
+      findImpl(dsl);
     }
-
-    return undefined;
+    return res;
+    function findImpl(dsl: DslType) {
+      if (dsl.id === id) {
+        res = dsl;
+        return
+      }
+      if (!dsl.children) return undefined;
+      dsl.children.forEach(findImpl)
+    }
   },
-  add: (data: { dsl: DslType[] | DslType; id: number | string }) => {
+  add: (data: { dsl: DslType[] | DslType; id?: number | string }) => {
     set((state) => {
-      const dsl = state.dsl;
+      const { dsl } = state;
       const { dsl: addDsl, id } = data;
-      const find = get().find({ id })
+
+      const find = get().find({ dsl, id })
+
       if (!find) return;
       if (!find.children) find.children = [];
-      if (isArray(dsl)) {
-        find.children.push(...dsl)
+      if (isArray(addDsl)) {
+        find.children.push(...addDsl)
       } else {
-        find.children.push(dsl)
+        find.children.push(addDsl)
       }
+      // TODO immer 无效 需要修复
+      state.dsl = { ...dsl }
     });
   },
 })))

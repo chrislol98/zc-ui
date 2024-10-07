@@ -2,25 +2,28 @@ import { Div, DivDsl, Droppable, DroppableDsl, TypeOfDslType, DslType } from 'go
 
 export class DslSnippet {
   name: string;
-  dsl: DslType[] | DslType;
-
-  constructor({ name, dsl }: DslSnippet) {
+  createDsl: () => DslType[] | DslType
+  constructor({ name, createDsl }: DslSnippet) {
     this.name = name
-    this.dsl = dsl
+    this.createDsl = createDsl
 
   }
 
   static map = new Map<string, DslSnippet>();
-  static add({ dsl, name }: DslSnippet) {
-    this.map.set(name, { dsl, name })
+  static add({ createDsl, name }: DslSnippet) {
+    this.map.set(name, { createDsl, name })
   }
 }
 
 export const DivDslSnippet = new DslSnippet({
   name: 'divDslSnippet',
-  dsl: { ...new DivDsl(), children: [new DroppableDsl()] }
+  createDsl: () => ({ ...new DivDsl(), children: [new DroppableDsl()] })
 })
-
 DslSnippet.add(DivDslSnippet)
 
+export const DroppableDslSnippet = new DslSnippet({
+  name: 'droppableDslSnippet',
+  createDsl: () => new DroppableDsl()
+})
+DslSnippet.add(DroppableDslSnippet)
 
