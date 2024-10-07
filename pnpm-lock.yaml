@@ -18,6 +18,22 @@ importers:
         specifier: ^8.3.0
         version: 8.3.0
 
+  packages/components/form:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+
+  packages/components/input:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+    devDependencies:
+      '@zc-ui/types':
+        specifier: workspace:*
+        version: link:../../types
+
   packages/hooks/use-controlled:
     dependencies:
       '@zc-ui/use-memoized-fn':
@@ -25,13 +41,20 @@ importers:
         version: link:../use-memoized-fn
       '@zc-ui/use-update':
         specifier: workspace:*
-        version: link:../use-default-props
+        version: link:../use-update
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
       react:
         specifier: '>=18'
         version: 18.3.1
+    devDependencies:
+      '@types/lodash':
+        specifier: ^4.17.9
+        version: 4.17.9
 
   packages/hooks/use-default-props:
     dependencies:
@@ -59,6 +82,10 @@ importers:
       react:
         specifier: '>=18'
         version: 18.3.1
+
+  packages/types: {}
+
+  packages/utils: {}
 
 packages:
 
@@ -323,6 +350,9 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+
+  '@types/lodash@4.17.9':
+    resolution: {integrity: sha512-w9iWudx1XWOHW5lQRS9iKpK/XuRhnN+0T7HvdCCd802FYkT1AMTnxndJHGrNJwRoRHkslGr4S29tjm1cT7x/7w==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -889,6 +919,8 @@ snapshots:
     optional: true
 
   '@types/estree@1.0.5': {}
+
+  '@types/lodash@4.17.9': {}
 
   '@types/prop-types@15.7.13': {}
 

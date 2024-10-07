@@ -12,20 +12,14 @@
   },
   "scripts": {},
   "peerDependencies": {
+    "lodash": "^4.17.21",
     "react": ">=18",
-    "lodash": "^4.17.21"
+    "@types/lodash": "^4.17.9"
   },
   "dependencies": {
     "@zc-ui/use-memoized-fn": "workspace:*",
-    "@zc-ui/use-update": "workspace:*"
+    "@zc-ui/use-update": "workspace:*",
+    "@zc-ui/utils": "workspace:*"
   },
-  "devDependencies": {},
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "devDependencies": {}
 }

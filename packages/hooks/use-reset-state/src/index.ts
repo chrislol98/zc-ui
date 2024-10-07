@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import useMemoizedFn from '@zc-ui/use-memoized-fn';
+import { useMemoizedFn } from '@zc-ui/use-memoized-fn';
 
 export default function useResetState<S>(initialState: S) {
   const initialStateRef = useRef(initialState);
