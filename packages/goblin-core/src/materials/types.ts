@@ -1,5 +1,5 @@
 import { Div, DivDsl, Droppable, DroppableDsl } from "./index";
-import { uniqueId } from "@zc-ui/shared";
+import { uniqueId } from "@zc-ui/utils";
 export class BaseDsl {
   name: string;
   id: number | string = uniqueId();

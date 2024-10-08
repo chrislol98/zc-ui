@@ -20,9 +20,9 @@ importers:
 
   packages/components/div:
     dependencies:
-      '@zc-ui/shared':
+      '@zc-ui/utils':
         specifier: workspace:*
-        version: link:../../shared
+        version: link:../../utils
       react:
         specifier: '>=18'
         version: 18.3.1
@@ -32,15 +32,24 @@ importers:
       '@dnd-kit/core':
         specifier: ^6.1.0
         version: 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@zc-ui/shared':
+      '@dnd-kit/sortable':
+        specifier: ^8.0.0
+        version: 8.0.0(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@dnd-kit/utilities':
+        specifier: ^3.2.2
+        version: 3.2.2(react@18.3.1)
+      '@zc-ui/utils':
         specifier: workspace:*
-        version: link:../../shared
+        version: link:../../utils
       react:
         specifier: '>=18'
         version: 18.3.1
 
   packages/components/form:
     dependencies:
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
       react:
         specifier: '>=18'
         version: 18.3.1
@@ -58,14 +67,79 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-default-props
 
+  packages/components/pagination:
+    dependencies:
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+
+  packages/components/rate:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+    devDependencies:
+      '@zc-ui/use-controlled':
+        specifier: workspace:*
+        version: link:../../hooks/use-controlled
+      '@zc-ui/use-memoized-fn':
+        specifier: workspace:*
+        version: link:../../hooks/use-memoized-fn
+      '@zc-ui/use-update':
+        specifier: workspace:*
+        version: link:../../hooks/use-update
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
+
+  packages/components/shadcn:
+    dependencies:
+      '@radix-ui/react-icons':
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.3.1)
+      '@radix-ui/react-slot':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react@18.3.10)(react@18.3.1)
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+      react-resizable-panels:
+        specifier: ^2.1.4
+        version: 2.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  packages/components/tree:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+    devDependencies:
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
+
   packages/goblin:
     dependencies:
+      '@zc-ui/dnd':
+        specifier: workspace:*
+        version: link:../components/dnd
       '@zc-ui/goblin-core':
         specifier: workspace:*
         version: link:../goblin-core
-      '@zc-ui/shared':
+      '@zc-ui/shadcn':
         specifier: workspace:*
-        version: link:../shared
+        version: link:../components/shadcn
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/goblin-core:
     dependencies:
@@ -75,9 +149,9 @@ importers:
       '@zc-ui/dnd':
         specifier: workspace:*
         version: link:../components/dnd
-      '@zc-ui/shared':
+      '@zc-ui/utils':
         specifier: workspace:*
-        version: link:../shared
+        version: link:../utils
       immer:
         specifier: ^10.1.1
         version: 10.1.1
@@ -90,15 +164,15 @@ importers:
       '@types/lodash':
         specifier: ^4.17.9
         version: 4.17.9
-      '@zc-ui/shared':
-        specifier: workspace:*
-        version: link:../../shared
       '@zc-ui/use-memoized-fn':
         specifier: workspace:*
         version: link:../use-memoized-fn
       '@zc-ui/use-update':
         specifier: workspace:*
         version: link:../use-update
+      '@zc-ui/utils':
+        specifier: workspace:*
+        version: link:../../utils
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -133,35 +207,16 @@ importers:
         specifier: '>=18'
         version: 18.3.1
 
-  packages/shared:
+  packages/types: {}
+
+  packages/utils:
     dependencies:
-      '@dnd-kit/core':
-        specifier: ^6.1.0
-        version: 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/sortable':
-        specifier: ^8.0.0
-        version: 8.0.0(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/utilities':
-        specifier: ^3.2.2
-        version: 3.2.2(react@18.3.1)
-      '@radix-ui/react-icons':
-        specifier: ^1.3.0
-        version: 1.3.0(react@18.3.1)
-      '@radix-ui/react-slot':
-        specifier: ^1.1.0
-        version: 1.1.0(@types/react@18.3.10)(react@18.3.1)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
-      react-resizable-panels:
-        specifier: ^2.1.4
-        version: 2.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -169,8 +224,6 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
-
-  packages/types: {}
 
 packages:
 

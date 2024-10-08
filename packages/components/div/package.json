@@ -11,6 +11,6 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@zc-ui/shared": "workspace:*"
+    "@zc-ui/utils": "workspace:*"
   }
 }

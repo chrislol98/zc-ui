@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 import { DslType, DivDslSnippet, } from 'goblin-core'
-import { isArray } from '@zc-ui/shared'
+import { isArray } from '@zc-ui/utils'
 type StateAction = {
   add: (data: { dsl: DslType[] | DslType; id?: number | string }) => void
   find: (data: { dsl: DslType[] | DslType; id?: number | string }) => DslType | undefined

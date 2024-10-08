@@ -1,4 +1,4 @@
-import { cn } from '@zc-ui/shared'
+import { cn } from '@zc-ui/utils'
 export function Div(props: DivProps) {
   const { children } = props;
 

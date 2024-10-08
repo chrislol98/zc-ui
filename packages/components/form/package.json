@@ -1,7 +1,6 @@
 {
   "name": "@nextui-org/form",
   "version": "1.0.0",
-  "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
@@ -14,6 +13,8 @@
   "peerDependencies": {
     "react": ">=18"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@zc-ui/utils": "workspace:*"
+  },
   "devDependencies": {}
 }

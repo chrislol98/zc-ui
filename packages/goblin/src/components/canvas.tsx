@@ -1,4 +1,4 @@
-import { cn } from '@zc-ui/shared';
+import { cn } from '@zc-ui/utils';
 import type { DslType } from '@zc-ui/goblin-core';
 import { parse } from '@zc-ui/goblin-core';
 interface CanvasData extends React.HTMLAttributes<HTMLDivElement> {

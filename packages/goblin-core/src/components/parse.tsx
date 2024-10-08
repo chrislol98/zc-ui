@@ -1,4 +1,4 @@
-import { isArray, omit } from '@zc-ui/shared';
+import { isArray, omit } from '@zc-ui/utils';
 import {
   BaseDsl,
   DslType,

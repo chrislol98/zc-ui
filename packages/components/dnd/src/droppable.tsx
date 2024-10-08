@@ -1,4 +1,4 @@
-import { cn } from '@zc-ui/shared';
+import { cn } from '@zc-ui/utils';
 import { useDroppable, UniqueIdentifier } from '@dnd-kit/core';
 
 export interface DroppableProps {

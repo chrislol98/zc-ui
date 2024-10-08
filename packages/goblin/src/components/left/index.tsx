@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { cn } from '@zc-ui/shared';
-import { useDraggable, useDndMonitor, CSS, DragOverlay } from '@zc-ui/shared';
+import { cn } from '@zc-ui/utils';
+import { useDndMonitor, DragOverlay, useDraggable } from '@zc-ui/dnd';
 import { DslSnippet, useDslStore } from '@zc-ui/goblin-core';
 
 interface LeftProps extends React.HTMLAttributes<Element> {}
