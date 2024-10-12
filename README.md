@@ -1,9 +1,6 @@
 # todo
 
-## bug: @/src 报错找不到原因
-
-## perf：register 卸载parse里面
-
+## bug: 【goblin-core 循环依赖】  【register 模块里面要执行的逻辑放在哪里最合理】
 ##
 
 ```ts
@@ -27,20 +24,5 @@ function xxx<T>(a: number) {
 const g = xxx<boolean>(2);
 ```
 
-# 组件
 
-pagination todo
-loading
-rate
-configProvider
-popup
-dialog
 
-> notification
-> select
-> button
-
-> input 待研究
-> tree long https://github.com/brimdata/react-arborist
-> form long react-hook-form
-> table long tastack-table

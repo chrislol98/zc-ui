@@ -8,7 +8,9 @@
       "goblin": ["./packages/goblin/src"],
       "goblin/*": ["./packages/goblin/src/*"],
       "goblin-core": ["./packages/goblin-core/src"],
-      "goblin-core/*": ["./packages/goblin-core/src/*"]
+      "goblin-core/*": ["./packages/goblin-core/src/*"],
+      // nextjs site文件夹专用
+      "components/*": ["./packages/components/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

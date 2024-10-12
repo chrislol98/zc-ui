@@ -1,5 +1,5 @@
 {
-  "name": "@zc-ui/rate",
+  "name": "@zc-ui/button",
   "version": "1.0.0",
   "license": "MIT",
   "main": "src/index.ts",
@@ -14,11 +14,10 @@
   "peerDependencies": {
     "react": ">=18"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@zc-ui/utils": "workspace:*",
-    "@zc-ui/use-controlled": "workspace:*",
-    "@zc-ui/use-update": "workspace:*",
-    "@zc-ui/use-memoized-fn": "workspace:*"
-  }
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0"
+  },
+  "devDependencies": {}
 }

@@ -1,6 +1,6 @@
 export * from './droppable'
-
-
+export * from './draggable'
+export * from './sortable'
 /**
  * dnd-kit
  * */
@@ -25,5 +25,10 @@ export {
   useDraggable,
   DragOverlay,
 } from '@dnd-kit/core';
+export {
+  restrictToVerticalAxis,
+  restrictToWindowEdges,
+  restrictToParentElement
+} from '@dnd-kit/modifiers';
 export type { UniqueIdentifier } from '@dnd-kit/core'
 export { CSS } from '@dnd-kit/utilities';

@@ -5,9 +5,8 @@ export default function EditorLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
-    <DndContext id={'zc-ui'}>
+    <DndContext id="zc-ui">
       <>{children}</>
     </DndContext>
   );

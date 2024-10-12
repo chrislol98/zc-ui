@@ -15,7 +15,8 @@
     "@zc-ui/utils": "workspace:*",
     "@zc-ui/goblin-core": "workspace:*",
     "@zc-ui/dnd": "workspace:*",
-    "@zc-ui/shadcn": "workspace:*"
+    "@zc-ui/button": "workspace:*",
+    "@zc-ui/resizable": "workspace:*"
   },
   "devDependencies": {}
 }

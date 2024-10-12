@@ -1,8 +1,12 @@
 {
-  "name": "@zc-ui/div",
+  "name": "@zc-ui/label",
   "version": "1.0.0",
+  "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -11,6 +15,8 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@zc-ui/utils": "workspace:*"
+    "@radix-ui/react-label": "^2.1.0",
+    "@zc-ui/utils": "workspace:*",
+    "class-variance-authority": "^0.7.0"
   }
 }

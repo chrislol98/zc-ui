@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { cn } from '@zc-ui/utils';
-import { useDndMonitor, DragOverlay, useDraggable } from '@zc-ui/dnd';
+import {
+  useDndMonitor,
+  DragOverlay,
+  useDraggable,
+  restrictToWindowEdges,
+} from '@zc-ui/dnd';
 import { DslSnippet, useDslStore } from '@zc-ui/goblin-core';
-
+import { Button } from 'components/button';
 interface LeftProps extends React.HTMLAttributes<Element> {}
 export function Left(props: LeftProps) {
   const { className } = props;
@@ -39,7 +44,9 @@ export function Left(props: LeftProps) {
   return (
     <div className={cn(className)}>
       {render()}
-      <DragOverlay>{activeId ? <Item value={activeId} /> : null}</DragOverlay>
+      <DragOverlay modifiers={[restrictToWindowEdges]}>
+        {activeId ? <Item value={activeId} /> : null}
+      </DragOverlay>
     </div>
   );
 }
@@ -59,5 +66,5 @@ function Draggable(props: React.PropsWithChildren<{ dslSnippet: DslSnippet }>) {
 }
 
 function Item(props: { value: string | number }) {
-  return props.value;
+  return <Button>{props.value}</Button>;
 }
