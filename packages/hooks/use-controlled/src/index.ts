@@ -11,7 +11,7 @@ function keyToDefaultKey<T extends string>(key: T) {
 
 type DefaultKey<K extends string> = `default${Capitalize<K>}`;
 
-export default function useControlled<
+export function useControlled<
   V extends P[K],
   P extends { [key in K]?: V } & { [key in DefaultKey<K>]?: V } & { [key: string]: any },
   K extends string,
@@ -49,3 +49,4 @@ export default function useControlled<
   }
   return [stateRef.current, useMemoizedFn(setState)] as const;
 }
+

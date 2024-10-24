@@ -1,41 +1,28 @@
 import { useState } from 'react';
 import { cn } from '@zc-ui/utils';
-import {
-  useDndMonitor,
-  DragOverlay,
-  useDraggable,
-  restrictToWindowEdges,
-} from '@zc-ui/dnd';
-import { DslSnippet, useDslStore } from '@zc-ui/goblin-core';
-import { Button } from 'components/button';
+import { useDndMonitor, DragOverlay, useDraggable } from '@zc-ui/dnd';
+import { snippetMap } from '@zc-ui/goblin-core';
+import { Button } from 'components/ui/button/src';
+
 interface LeftProps extends React.HTMLAttributes<Element> {}
 export function Left(props: LeftProps) {
   const { className } = props;
-  const add = useDslStore((state) => state.add);
   const [activeId, setActiveId] = useState<string | number | null>(null);
 
   useDndMonitor({
     onDragStart(event) {
       setActiveId(event.active.id);
     },
-    onDragMove(event) {},
-    onDragOver(event) {},
     onDragEnd(event) {
-      const id = event.over?.id;
-      const current = event.active.data.current as DslSnippet;
-      const dsl = current.createDsl();
-      dsl && add({ dsl, id });
       setActiveId(null);
     },
-    onDragCancel(event) {},
   });
 
   function render() {
-    return [...DslSnippet.map.values()].map(function (value) {
-      const { name } = value;
+    return [...snippetMap.keys()].map(function (key) {
       return (
-        <Draggable dslSnippet={value} key={name}>
-          <Item value={name} />
+        <Draggable id={key} key={key}>
+          <Item value={key} />
         </Draggable>
       );
     });
@@ -44,23 +31,23 @@ export function Left(props: LeftProps) {
   return (
     <div className={cn(className)}>
       {render()}
-      <DragOverlay modifiers={[restrictToWindowEdges]}>
-        {activeId ? <Item value={activeId} /> : null}
-      </DragOverlay>
+      <DragOverlay>{activeId ? <Item value={activeId} /> : null}</DragOverlay>
     </div>
   );
 }
 
-function Draggable(props: React.PropsWithChildren<{ dslSnippet: DslSnippet }>) {
-  const { dslSnippet } = props;
+function Draggable(props: { id: string; children: React.ReactNode }) {
+  const { id, children } = props;
+  const get = snippetMap.get(id);
+  if (!get) throw new Error('snippetMap.get(id) is undefined');
   const { attributes, listeners, setNodeRef } = useDraggable({
-    id: dslSnippet.name,
-    data: dslSnippet,
+    id: id,
+    data: get.schema,
   });
 
   return (
     <div ref={setNodeRef} {...listeners} {...attributes}>
-      {props.children}
+      {children}
     </div>
   );
 }

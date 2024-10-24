@@ -17,6 +17,7 @@ export {
   closestCenter,
   KeyboardSensor,
   PointerSensor,
+  MouseSensor,
   useSensor,
   useSensors,
   useDndMonitor,

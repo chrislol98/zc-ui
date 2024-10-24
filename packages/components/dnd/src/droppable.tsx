@@ -11,15 +11,31 @@ export function Droppable(props: DroppableProps) {
     id: id,
   });
 
-  return (
-    <div
-      className={cn('h-full  overflow-auto', {
-        'bg-orange-200': true,
-        'bg-red-200': isOver,
-      })}
-      ref={setNodeRef}
-    >
-      {children}
-    </div>
-  );
+  function render() {
+    if (!children) {
+      return (
+        <div
+          className={cn('h-[20px]  overflow-auto', {
+            'bg-orange-200': true,
+            'bg-red-200': isOver,
+          })}
+          ref={setNodeRef}
+        >
+          {children}
+        </div>
+      );
+    }
+    return (
+      <div
+        className={cn('h-[300px]  overflow-auto', {
+          'bg-orange-200': true,
+          'bg-red-200': isOver,
+        })}
+        ref={setNodeRef}
+      >
+        {children}
+      </div>
+    );
+  }
+  return render();
 }

@@ -6,7 +6,7 @@ import { UniqueIdentifier, DragOverlay, useDndMonitor } from '@dnd-kit/core';
 export function Sortable(props: SortableProps) {
   const { id, children } = props;
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: id });
+    useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),

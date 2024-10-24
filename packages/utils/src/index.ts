@@ -2,6 +2,8 @@
  * lodash
  * */
 export * from 'lodash-es'
+export const isFunction = (value: unknown): value is (this: any, ...args: any[]) => any => typeof value === 'function';
+
 /**
  * shadcn
  * */
@@ -11,3 +13,15 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+/**
+ * ahooks
+ */
+
+export * from 'ahooks'
+
+
+
+
+
+

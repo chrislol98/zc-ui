@@ -1,18 +1,19 @@
 'use client';
 import {
-  // shadcn
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
   //
   Canvas,
   Left,
   Right,
   useDslStore,
 } from 'goblin';
+import {
+  // shadcn
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from 'components/ui/resizable';
 
 export default function ResizableLayout() {
-  const dsl = useDslStore((state) => state.dsl);
   return (
     <div className="h-full w-full">
       <ResizablePanelGroup direction="horizontal" className="h-full">
@@ -21,7 +22,7 @@ export default function ResizableLayout() {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={60} minSize={15}>
-          <Canvas data={dsl} className="h-full" />
+          <Canvas className="h-full" />
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={20} minSize={15}>

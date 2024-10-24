@@ -1,13 +1,10 @@
 import { cn } from '@zc-ui/utils';
-import type { DslType } from '@zc-ui/goblin-core';
-import { Parser } from '@zc-ui/goblin-core';
-interface CanvasData extends React.HTMLAttributes<HTMLDivElement> {
-  data?: DslType[] | DslType;
-}
+import { Parser, useDslStore } from '@zc-ui/goblin-core';
+interface CanvasData extends React.HTMLAttributes<HTMLDivElement> {}
 export function Canvas(props: CanvasData) {
-  const { className, data } = props;
+  const { className } = props;
 
-  const parseNode = data ? Parser(data) : null;
-  
-  return <div className={cn(className)}>{parseNode}</div>;
+  const dsl = useDslStore((state) => state.dsl);
+
+  return <div className={cn(className)}>{dsl ? Parser(dsl) : null}</div>;
 }

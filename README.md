@@ -1,5 +1,4 @@
-# todo
-
+# fix
 ## bug: 【goblin-core 循环依赖】  【register 模块里面要执行的逻辑放在哪里最合理】
 ##
 

@@ -1,0 +1,22 @@
+{
+  "name": "@zc-ui/checkbox",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {},
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@zc-ui/utils": "workspace:*"
+  }
+}

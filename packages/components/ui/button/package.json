@@ -1,0 +1,22 @@
+{
+  "name": "@zc-ui/button",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {},
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@zc-ui/utils": "workspace:*",
+    "class-variance-authority": "^0.7.0"
+  }
+}

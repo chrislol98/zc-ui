@@ -1,0 +1,23 @@
+{
+  "name": "@zc-ui/rate",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@zc-ui/use-controlled": "workspace:*",
+    "@zc-ui/use-default-props": "workspace:*",
+    "@zc-ui/utils": "workspace:*",
+    "class-variance-authority": "^0.7.0",
+    "lucide-react": "^0.453.0"
+  }
+}

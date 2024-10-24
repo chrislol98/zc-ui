@@ -14,8 +14,12 @@
   "peerDependencies": {
     "react": ">=18"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@zc-ui/utils": "workspace:*",
+    "@zc-ui/checkbox": "workspace:*",
+    "react-window": "^1.8.10"
+  },
   "devDependencies": {
-    "@zc-ui/utils": "workspace:*"
+    "@types/react-window": "^1.8.8"
   }
 }

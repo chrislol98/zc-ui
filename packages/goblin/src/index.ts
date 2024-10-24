@@ -5,6 +5,4 @@ export { DndContext } from '@zc-ui/dnd'
 export * from '@zc-ui/button'
 export * from '@zc-ui/resizable'
 //self
-export { Left } from './components/left'
-export { Right } from './components/right'
-export { Canvas } from './components/canvas'
+export * from './components'

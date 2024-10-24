@@ -10,18 +10,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {},
   "peerDependencies": {
     "react": ">=18"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "devDependencies": {}
 }
