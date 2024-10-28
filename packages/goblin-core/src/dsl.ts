@@ -48,7 +48,13 @@ export class DroppableDsl extends Dsl<'droppable'> {
 }
 
 
+export type SpecificDsl = FormDsl | FormFieldDsl | InputDsl | DroppableDsl
+export type TypeofSpecificDsl = typeof FormDsl | typeof FormFieldDsl | typeof InputDsl | typeof DroppableDsl
 
+export class DslManager {
+  dsls: Dsl[] = []
+  
+}
 
 
 

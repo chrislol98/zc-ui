@@ -1,0 +1,12 @@
+{
+  "name": "@zc-ui/form-builder",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@zc-ui/utils": "workspace:*",
+    "@zc-ui/form": "workspace:*"
+  }
+}

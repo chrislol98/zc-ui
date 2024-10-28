@@ -1,0 +1,11 @@
+{
+  "name": "@zc-ui/icon",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0"
+  }
+}

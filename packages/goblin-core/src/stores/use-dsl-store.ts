@@ -12,15 +12,18 @@ type StateAction = {
   swap: (id: number | string, lIndex: number, RIndex: number) => void
   find: (data: { dsl: Dsl[] | Dsl; id?: number | string }) => Dsl | undefined
   findByName: (data: { id: number | string, name: string; depth?: number }) => void
+  setDsl: (dsl: Dsl) => void
   delete?: (dsl: Dsl) => void
 }
 
 type State = {
-  dsl: Dsl[] | Dsl
+  dsl?: Dsl[] | Dsl
 }
 
 export const useDslStore = create<State & StateAction>()(immer((set, get) => ({
-  dsl: createDsl({ name: 'droppable' }, { map: dslMap }),
+  setDsl: (dsl) => set((state) => {
+    state.dsl = dsl;
+  }),
   findByName: (data) => {
     const dsl = get().dsl;
     const { depth = 1, name, id } = data;

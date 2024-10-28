@@ -1,0 +1,11 @@
+{
+  "name": "@zc-ui/input",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@zc-ui/utils": "workspace:*",
+    "class-variance-authority": "^0.7.0"
+  }
+}
