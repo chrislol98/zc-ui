@@ -1,6 +1,8 @@
 'use client';
 
-import { useForm, z, zodResolver } from 'components/ui/form';
+import { z } from 'components/ui/form/src/zod';
+import { useForm, zodResolver } from 'components/ui/form/src/react-hook-form';
+
 import { Rating } from 'components/rate';
 import { toast } from 'components/ui/toast';
 import { Button } from 'components/ui/button';
@@ -13,7 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from 'components/ui/form';
-import { Input } from 'components/ui/input';
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -51,7 +52,7 @@ export default function InputForm() {
               <FormLabel>Username</FormLabel>
               <FormControl>
                 {/* <Input placeholder="shadcn" {...field} /> */}
-                <Rating value={1.5}></Rating>
+                <Rating defaultValue={1.5}></Rating>
               </FormControl>
               <FormDescription>
                 This is your public display name.

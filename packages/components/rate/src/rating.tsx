@@ -24,22 +24,31 @@ export const Rating = React.forwardRef((_props: RateProps, ref) => {
   const props = useDefaultProps(_props, defaultProps);
   const { count, icon } = props;
   const [value, setValue] = useControllableValue<RateProps['value']>(props);
+
+  function onClick(index: number) {
+    setValue(index);
+  }
   function render() {
-    if (!value) return null;
-    const full = Math.floor(value);
-    const half = value - full;
-    // TODO should use useMemo?
+    if (value === undefined) return null;
+    const fullIndex = Math.floor(Math.max(value - 1, 0));
+    // const half = value - full;
+
+    // 不用需要useMemo，useMemo不是用來缓存的
     const commonIconProps = {
       className: 'text-green-500',
     };
 
     return [...Array(count)].map((_, i) => (
-      <div key={i}>
-        {i < full ? React.cloneElement(icon, { ...commonIconProps }) : null}
-        {i === full && half
+      <div key={i} onClick={(_) => onClick(i)}>
+        {i <= fullIndex
           ? React.cloneElement(icon, { ...commonIconProps })
           : null}
-        {i > full ? React.cloneElement(icon) : null}
+        {/* {i === full
+          ? React.cloneElement(icon, {
+              ...commonIconProps,
+            })
+          : null} */}
+        {i > fullIndex ? React.cloneElement(icon) : null}
       </div>
     ));
   }

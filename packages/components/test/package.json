@@ -1,0 +1,25 @@
+{
+  "name": "@zc-ui/test",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsup src"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@formily/reactive": "^2.3.2",
+    "@zc-ui/button": "workspace:*",
+    "@zc-ui/utils": "workspace:*",
+    "autoprefixer": "^10.4.20",
+    "lodash-es": "^4.17.21",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
+  }
+}

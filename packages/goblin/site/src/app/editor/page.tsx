@@ -1,10 +1,8 @@
 'use client';
 import {
-  //
   Canvas,
   Left,
   Right,
-  useDslStore,
 } from 'goblin';
 import {
   // shadcn

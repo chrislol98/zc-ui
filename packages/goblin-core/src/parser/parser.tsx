@@ -1,14 +1,12 @@
-import { isArray, omit } from '@zc-ui/utils';
+import { isArray } from '@zc-ui/utils';
 import { Dsl } from '../dsl';
 import { dslMap } from '../map';
-import { useDslStore } from '../stores';
+import { useSyncExternalStore } from 'react';
 export interface ParserProps {
   dsl: Dsl;
 }
 export function Parser(parserProps: ParserProps): React.ReactNode | null {
   const { dsl } = parserProps;
-  const setDsl = useDslStore((state) => state.setDsl);
-  setDsl(dsl);
 
   return render();
   function render() {

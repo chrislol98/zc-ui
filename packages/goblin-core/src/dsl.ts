@@ -1,5 +1,6 @@
 import { uniqueId } from "@zc-ui/utils";
 import { immerable } from 'immer'
+import { createContext } from "react";
 export type DslId = number | string
 export type DslName = 'form' | "formField" | 'input' | 'droppable'
 
@@ -52,9 +53,24 @@ export type SpecificDsl = FormDsl | FormFieldDsl | InputDsl | DroppableDsl
 export type TypeofSpecificDsl = typeof FormDsl | typeof FormFieldDsl | typeof InputDsl | typeof DroppableDsl
 
 export class DslManager {
-  dsls: Dsl[] = []
-  
+  dslMap = new Map<DslId, Dsl>();
+  dsl?: Dsl;
+  find = (id: DslId) => {
+    return this.dslMap.get(id)
+  }
+  add = (data: { dsl: Dsl, parentId: DslId }) => {
+    const { dsl, parentId } = data;
+    const parent = this.dslMap.get(parentId);
+    if (parent) {
+      parent.children = parent.children || [];
+      parent.children.push(dsl);
+    }
+  }
+
 }
 
+
+
+export const DslManagerContext = createContext({})
 
 

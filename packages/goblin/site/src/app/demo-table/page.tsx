@@ -1,9 +1,7 @@
-
-'use server'
 import { promises as fs } from 'fs';
 import path from 'path';
 import { taskSchema } from './schema';
-import { z } from 'components/ui/form';
+import { z } from 'components/ui/form/src/zod';
 import { columns } from './columns';
 import { DataTable } from 'components/data-table';
 async function getTasks() {

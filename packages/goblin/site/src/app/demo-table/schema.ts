@@ -1,4 +1,4 @@
-import { z } from 'components/ui/form';
+import { z } from 'components/ui/form/src/zod';
 
 export const taskSchema = z.object({
   id: z.string(),

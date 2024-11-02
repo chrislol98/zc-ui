@@ -1,0 +1,11 @@
+{
+  "name": "@zc-ui/config-provider",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@zc-ui/utils": "workspace:*"
+  }
+}
